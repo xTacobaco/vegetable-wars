@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Projects/Vegetable Wars/Vegetable Wars/Content/mouse.png</SourceFile>
+  <SourceFile>C:/Projects/vegetable-wars/Vegetable Wars/Content/mouse.png</SourceFile>
   <SourceTime>2017-12-14T12:35:56+01:00</SourceTime>
-  <DestFile>C:/Projects/Vegetable Wars/Vegetable Wars/Content/bin/Windows/mouse.xnb</DestFile>
-  <DestTime>2017-12-15T22:57:57.8922142+01:00</DestTime>
+  <DestFile>C:/Projects/vegetable-wars/Vegetable Wars/Content/bin/Windows/mouse.xnb</DestFile>
+  <DestTime>2017-12-18T11:18:50.9034155+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -4,16 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/spriteSheet.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/8bit.spriteFont</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/mouse.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/VW.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/water.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/load.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/bg.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/clack.wav</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/click.wav</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/displaySprite.png</File>
-    <File>C:/Projects/Vegetable Wars/Vegetable Wars/Content/cardSheet.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/spriteSheet.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/8bit.spriteFont</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/mouse.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/VW.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/water.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/load.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/bg.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/clack.wav</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/click.wav</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/displaySprite.png</File>
+    <File>C:/Projects/vegetable-wars/Vegetable Wars/Content/cardSheet.png</File>
   </SourceFiles>
 </SourceFileCollection>
