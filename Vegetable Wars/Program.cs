@@ -5,7 +5,6 @@ using Lidgren.Network;
 namespace Vegetable_Wars {
 #if WINDOWS || LINUX
   public static class Program {
-    //static  netHandler;
     [STAThread]
     static void Main() {
       NetPeerConfiguration config = new NetPeerConfiguration("QWERTY");
@@ -14,7 +13,7 @@ namespace Vegetable_Wars {
 
       NetClient client = new NetClient(config);
       client.Start();
-      client.Connect("192.168.50.51", 2220);
+      client.Connect("127.0.0.1", 2220);
 
       NetworkHandler netHandler = new NetworkHandler(client);
       using (var game = new VW(netHandler))

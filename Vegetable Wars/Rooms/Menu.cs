@@ -36,18 +36,20 @@ namespace Vegetable_Wars.Rooms {
       VW.title.onScreen = false;
       VW.island.Focus = true;
       VW.PlayerDisplay.onScreen = true;
-      var client = VW.netHandler.peer;
+
+      var client = VW.netHandler.Peer;
       var msg = client.CreateMessage();
       msg.Write(1);
       msg.Write((int)VW.Type);
       client.SendMessage(msg, NetDeliveryMethod.ReliableOrdered);
+
       VW.Index = RoomType.Lobby;
     }
     private void options() {
       VW.Index = RoomType.Options;
     }
     private void exit() {
-      VW.netHandler.peer.Disconnect("");
+      VW.netHandler.Peer.Disconnect("");
       VW.ExitGame();
     }
   }

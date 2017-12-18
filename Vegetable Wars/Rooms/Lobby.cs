@@ -25,9 +25,10 @@ namespace Vegetable_Wars.Rooms {
     bool searching = true;
     bool waiting = false;
     bool won = false;
+    bool lose = false;
     public Lobby() {
       Index = new List<IForm>();
-      searchLabel = new Label(new Point(300, 260), "Looking for opponent!");
+      searchLabel = new Label(new Point((int)VW.GameWindow.X/2, 260), "Looking for opponent!") { Centered = true };
       buttonPlay = new Button(new List<IForm>(), new Point((int)VW.GameWindow.X / 2 - 60, (int)VW.GameWindow.Y / 2 + 155), "Play", SndEffect.enter, play);
       gameInfo = new Label(new Point((int)VW.GameWindow.X / 2, (int)VW.GameWindow.Y / 2 + 50), "") { Centered = true };
       loading = new Loading(new Vector2(400, 235));
@@ -43,12 +44,15 @@ namespace Vegetable_Wars.Rooms {
       keyboardNavigation();
 
       findOpponent();
+      getContent();
+      getWinner();
+      won = enemy.Health == 0;
+      lose = player.Health == 0 && !won;
+
       if (searching)
         loading.Update(gameTime);
       else
         VW.EnemyDisplay.onScreen = true;
-      getContent();
-      getWinner();
 
       searchLabel.Visible = searching;
       gameInfo.Visible = !searching;
@@ -67,6 +71,22 @@ namespace Vegetable_Wars.Rooms {
 
       getGameInfo();
       gameInfo.Update(gameTime);
+
+      if (won) {
+        searchLabel.Visible = true;
+        searchLabel.Pos = new Point((int)VW.GameWindow.X/2, 230);
+        searchLabel.Text = "Congratulations " + VW.Username + ",\nyou won against " + VW.Enemy;
+        buttonPlay.Visible = false;
+        gameInfo.Visible = false;
+      }
+      if (lose) {
+        searchLabel.Visible = true;
+        searchLabel.Pos = new Point((int)VW.GameWindow.X/2, 230);
+        searchLabel.Text = "Sorry " + VW.Username + ",\nyou lost against " + VW.Enemy;
+        buttonPlay.Visible = false;
+        gameInfo.Visible = false;
+      }
+
     }
 
     public override void Draw(SpriteBatch spriteBatch) {
@@ -80,6 +100,8 @@ namespace Vegetable_Wars.Rooms {
         foreach (var card in Hand)
           if (card != null) card.Draw(spriteBatch);
       }
+      if (won || lose)
+        spriteBatch.Draw(Shadow, new Vector2(0, 150), Color.White);
 
       foreach (var button in buttonList) button.Draw(spriteBatch);
       foreach (var label in labelList) label.Draw(spriteBatch);
@@ -89,7 +111,7 @@ namespace Vegetable_Wars.Rooms {
     }
 
     private void leave() {
-      NetClient client = VW.netHandler.peer;
+      NetClient client = VW.netHandler.Peer;
       var msg = client.CreateMessage();
       msg.Write(2);
       client.SendMessage(msg, NetDeliveryMethod.ReliableOrdered);
@@ -123,11 +145,17 @@ namespace Vegetable_Wars.Rooms {
         Random random = new Random();
         for (int i = 0; i < 5; i++)
           createCard(random);
+
+        player.Health = 100;
+        enemy.Health = 100;
       }
     }
     protected async void getContent() {
       var msg = await Task.Run(() => VW.netHandler.getMessage("place"));
-      waiting = false;
+      if (msg != null) {
+        waiting = false;
+        cardHandler(enemy, msg.ReadString());
+      }
     }
     protected async void getWinner() {
       won = await Task.Run(() => VW.netHandler.getMessage("won")) == null;
@@ -140,11 +168,12 @@ namespace Vegetable_Wars.Rooms {
       createCard(random);
       waiting = true;
 
-      var client = VW.netHandler.peer;
+      var client = VW.netHandler.Peer;
       var msg = client.CreateMessage();
       msg.Write(3);
       msg.Write(string.Join(",", cards.Select(y => (int)y.Type)));
       client.SendMessage(msg, NetDeliveryMethod.ReliableOrdered);
+      cardHandler(player, cards);
     }
     private void getGameInfo() {
       CardType[] cards = Hand.Where(o => o != null).Where(x => x.Selected).Select(y => y.Type).ToArray();
@@ -157,6 +186,25 @@ namespace Vegetable_Wars.Rooms {
       if (gameInfo.Text == "")
         gameInfo.Text = string.Join(" + ", cards);
     }
+    private void cardHandler(Vegetable sender, string cards) {
+      var other = (sender == player ? enemy : player);
+      int magi = cards.ToCharArray().Count(c => c == '0');
+      int atta = cards.ToCharArray().Count(c => c == '1');
+      int heal = cards.ToCharArray().Count(c => c == '2');
+      int smag = cards.ToCharArray().Count(c => c == '3');
+      int satt = cards.ToCharArray().Count(c => c == '4');
+
+      other.Health -= 25 * (int)Math.Pow(atta * (other.AttackBlock > 0 ? 0 : 1), 2);
+      other.Health -= 25 * (int)Math.Pow(magi * (other.AttackBlock > 0 ? 0 : 1), 2);
+      other.AttackBlock--;
+      other.MagicBlock--;
+
+      sender.AttackBlock += satt;
+      sender.MagicBlock += smag;
+      sender.Health += 25 * (int)Math.Pow(heal, 2);
+    }
+    private void cardHandler(Vegetable veggie, List<Card> cards) { cardHandler(veggie, string.Join(",", cards.Select(y => (int)y.Type))); }
+
     private void createCard(Random random) {
       Hand.Add(new Card((CardType)random.Next(5), new Vector2(VW.GameWindow.X / 2 + Hand.Count * 70, VW.GameWindow.Y / 2 + 90)));
     }

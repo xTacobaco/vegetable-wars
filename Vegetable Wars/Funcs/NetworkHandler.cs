@@ -5,58 +5,51 @@ using System.Diagnostics;
 
 namespace Vegetable_Wars.Funcs {
   public class NetworkHandler {
-    public NetClient peer;
-    public Dictionary<string,NetIncomingMessage> Unhandled = new Dictionary<string,NetIncomingMessage>();
+    public NetClient Peer;
+    public Dictionary<string, NetIncomingMessage> Unhandled;
 
-    public NetworkHandler(NetClient p) {
-      peer = p;
+    public NetworkHandler(NetClient netPeer) {
+      Peer = netPeer;
+      Unhandled = new Dictionary<string, NetIncomingMessage>();
+    }
+
+    public void Update() {
+      var imsg = Peer.ReadMessage();
+      if (imsg != null) {
+        string currentKey = imsg.ReadString();
+        Unhandled.Add(currentKey, imsg);
+      }
+    }
+
+    private NetIncomingMessage findMessage(string key) {
+      NetIncomingMessage imsg = null;
+      foreach (var msg in Unhandled) {
+        if (msg.Key == key) {
+          imsg = msg.Value;
+          Unhandled.Remove(msg.Key);
+          return imsg;
+        }
+      }
+      return null;
     }
 
     public NetIncomingMessage getMessage(string key) {
-      NetIncomingMessage imsg = null;
       var index = VW.Index;
 
       while (VW.Index == index) {
-        foreach (var msg in Unhandled) {
-          if (msg.Key == key) {
-            imsg = msg.Value;
-            Unhandled.Remove(msg.Key);
-            return imsg;
-          }
-        }
-        imsg = peer.ReadMessage();
-        if (imsg != null) {
-          string currentKey = imsg.ReadString();
-          if (currentKey == key)
-            return imsg;
-          else if (!Unhandled.ContainsKey(currentKey))
-            Unhandled.Add(currentKey, imsg);
-        }
+        var msg = findMessage(key);
+        if (msg != null) return msg;
         Thread.Sleep(1);
       }
       return null;
     }
 
     public NetIncomingMessage getMessage(string key, int timeout) {
-      NetIncomingMessage imsg = null;
       int num = 0;
 
       while (num < timeout) {
-        foreach (var msg in Unhandled) {
-          if (msg.Key == key) {
-            imsg = msg.Value;
-            Unhandled.Remove(msg.Key);
-            return imsg;
-          }
-        }
-        imsg = peer.ReadMessage();
-        if (imsg != null) {
-          string currentKey = imsg.ReadString();
-          if (currentKey == key)
-            return imsg;
-          else if (!Unhandled.ContainsKey(currentKey))
-            Unhandled.Add(currentKey, imsg);
-        }
+        var msg = findMessage(key);
+        if (msg != null) return msg;
         num++;
         Thread.Sleep(1);
       }

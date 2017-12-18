@@ -11,7 +11,7 @@ using Vegetable_Wars.Forms;
 using System;
 
 namespace Vegetable_Wars.Rooms {
-  public interface IRoom {
+  public interface IRoom { 
     List<Button> buttonList { get; set; }
     List<Label> labelList { get; set; }
     List<Input> inputList { get; set; }
@@ -31,9 +31,10 @@ namespace Vegetable_Wars.Rooms {
     public static readonly HttpClient loginValid = new HttpClient();
 
     public Texture2D Shadow = new Texture2D(VW.Graphics.GraphicsDevice, (int)VW.GameWindow.X, 200);
-    Color[] shadowColor = new Color[(int)VW.GameWindow.X * 200];
+    Color[] shadowColor;
 
     public Room() {
+      shadowColor = new Color[Shadow.Width*Shadow.Height];
       for (int i = 0; i < shadowColor.Length; i++)
         shadowColor[i] = new Color(0, 0, 0, 0.6f);
       Shadow.SetData(shadowColor);
@@ -65,7 +66,7 @@ namespace Vegetable_Wars.Rooms {
       HttpResponseMessage request;
       int result;
       try {
-        request = await loginValid.PostAsync("http://192.168.50.51/", content);
+        request = await loginValid.PostAsync("http://127.0.0.1/", content);
         result = int.Parse(await request.Content.ReadAsStringAsync());
       } catch {
         result = 4;
@@ -75,7 +76,7 @@ namespace Vegetable_Wars.Rooms {
 
     protected async Task<bool> impostor(string username) {
       bool result = true;
-      var client = VW.netHandler.peer;
+      var client = VW.netHandler.Peer;
       var msg = client.CreateMessage();
       msg.Write(0);
       msg.Write(username);

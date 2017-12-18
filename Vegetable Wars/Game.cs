@@ -29,8 +29,6 @@ namespace Vegetable_Wars {
     }
     public static VegetableId Type = 0;
 
-    public static Label Debug;
-
     SpriteBatch spriteBatch;
     public static SpriteFont GlobalFont;
 
@@ -75,7 +73,6 @@ namespace Vegetable_Wars {
       mouseTexture = Content.Load<Texture2D>("mouse");
       LoadTexture = Content.Load<Texture2D>("load");
       GlobalFont = Content.Load<SpriteFont>("8bit");
-      Debug = new Label(new Point(5,5), "");
 
       DisplaySprite = Content.Load<Texture2D>("displaySprite");
       PlayerDisplay = new VegetableDisplay(new Vector2(-200, 0));
@@ -100,6 +97,7 @@ namespace Vegetable_Wars {
     protected override void Update(GameTime gameTime) {
       FrameCount += 1;
       MousePos = new Point(Mouse.GetState().X, Mouse.GetState().Y);
+      netHandler.Update();
 
       PlayerDisplay.Update(gameTime);
       EnemyDisplay.Update(gameTime);
@@ -112,7 +110,6 @@ namespace Vegetable_Wars {
         Exit();
         System.Environment.Exit(0);
       }
-      Debug.Update(gameTime);
       base.Update(gameTime);
     }
 
@@ -127,7 +124,6 @@ namespace Vegetable_Wars {
 
       Rooms[(int)Index].Draw(spriteBatch);
       spriteBatch.Draw(mouseTexture, MousePos.ToVector2(), null, Color.White, 0, new Vector2(0, 0), 3, SpriteEffects.None, 0);
-      Debug.Draw(spriteBatch);
       spriteBatch.End();
       base.Draw(gameTime);
     }
