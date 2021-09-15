@@ -1,0 +1,36 @@
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\8bit.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\bg.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\cardSheet.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\clack.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\click.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\displaySprite.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\load.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\mouse.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\spriteSheet.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\VW.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\water.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Vegetable Wars.exe
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Vegetable Wars.pdb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.csproj.AssemblyReference.cache
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.csproj.CoreCompileInputs.cache
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.csproj.CopyComplete
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.exe
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.pdb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Lidgren.Network.dll
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Lidgren.Network.pdb

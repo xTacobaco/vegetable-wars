@@ -46,7 +46,10 @@ namespace Vegetable_Wars.Rooms {
       findOpponent();
       getContent();
       getWinner();
-      won = enemy.Health == 0;
+
+      if (enemy.Health == 0) {
+        won = true;
+      }
       lose = player.Health == 0 && !won;
 
       if (searching)
@@ -78,8 +81,7 @@ namespace Vegetable_Wars.Rooms {
         searchLabel.Text = "Congratulations " + VW.Username + ",\nyou won against " + VW.Enemy;
         buttonPlay.Visible = false;
         gameInfo.Visible = false;
-      }
-      if (lose) {
+      } else if (lose) {
         searchLabel.Visible = true;
         searchLabel.Pos = new Point((int)VW.GameWindow.X/2, 230);
         searchLabel.Text = "Sorry " + VW.Username + ",\nyou lost against " + VW.Enemy;
@@ -125,10 +127,12 @@ namespace Vegetable_Wars.Rooms {
       VW.PlayerDisplay.onScreen = false;
       VW.EnemyDisplay.onScreen = false;
       VW.Index = RoomType.Menu;
+      VW.Rooms.Remove(this);
+      VW.Rooms.Add(new Lobby());
     }
 
-    protected async void findOpponent() {
-      var msg = await Task.Run(() => VW.netHandler.getMessage("found"));
+    protected void findOpponent() {
+      var msg = VW.netHandler.getMessage("found");
       if (msg != null) {
         searching = false;
         string user = msg.ReadString();
@@ -150,15 +154,17 @@ namespace Vegetable_Wars.Rooms {
         enemy.Health = 100;
       }
     }
-    protected async void getContent() {
-      var msg = await Task.Run(() => VW.netHandler.getMessage("place"));
+    protected void getContent() {
+      var msg = VW.netHandler.getMessage("place");
       if (msg != null) {
         waiting = false;
         cardHandler(enemy, msg.ReadString());
       }
     }
-    protected async void getWinner() {
-      won = await Task.Run(() => VW.netHandler.getMessage("won")) == null;
+    protected void getWinner() {
+      if (VW.netHandler.getMessage("won") != null && lose == false) {
+        won = true;
+      }
     }
     private void play() {
       List<Card> cards = Hand.Where(o => o != null).Where(x => x.Selected).ToList();

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Lidgren.Network;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System;
 
 namespace Vegetable_Wars.Funcs {
   public class NetworkHandler {
@@ -25,6 +25,7 @@ namespace Vegetable_Wars.Funcs {
 
     //Find Message by key from the unhandled list.
     private NetIncomingMessage findMessage(string key) {
+      Console.WriteLine(key);
       NetIncomingMessage imsg = null;
       foreach (var msg in Unhandled) {
         //Found key
@@ -38,17 +39,9 @@ namespace Vegetable_Wars.Funcs {
       return null;
     }
     
-    //Keep on searching for Message by key from the unhandled list till it's found or room switches.
+    //Searching for Message by key from the unhandled list till it's found or room switches.
     public NetIncomingMessage getMessage(string key) {
-      var index = VW.Index;
-
-      while (VW.Index == index) {
-        var msg = findMessage(key);
-        //Validating that key was found before retrieving.
-        if (msg != null) return msg;
-        Thread.Sleep(1);
-      }
-      return null;
+      return findMessage(key);
     }
 
     //Keep on searching for Message by key from unhandles list till it's found, room switches or the timeout is hit.

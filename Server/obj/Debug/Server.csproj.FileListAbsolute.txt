@@ -1,0 +1,10 @@
+C:\Projects\vegetable-wars\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Projects\vegetable-wars\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Projects\vegetable-wars\Server\bin\Debug\Server.exe.config
+C:\Projects\vegetable-wars\Server\bin\Debug\Server.exe
+C:\Projects\vegetable-wars\Server\bin\Debug\Server.pdb
+C:\Projects\vegetable-wars\Server\bin\Debug\Lidgren.Network.dll
+C:\Projects\vegetable-wars\Server\bin\Debug\Lidgren.Network.pdb
+C:\Projects\vegetable-wars\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Projects\vegetable-wars\Server\obj\Debug\Server.exe
+C:\Projects\vegetable-wars\Server\obj\Debug\Server.pdb
