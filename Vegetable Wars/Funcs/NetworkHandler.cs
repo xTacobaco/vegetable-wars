@@ -25,7 +25,6 @@ namespace Vegetable_Wars.Funcs {
 
     //Find Message by key from the unhandled list.
     private NetIncomingMessage findMessage(string key) {
-      Console.WriteLine(key);
       NetIncomingMessage imsg = null;
       foreach (var msg in Unhandled) {
         //Found key
