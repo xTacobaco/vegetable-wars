@@ -53,9 +53,14 @@ namespace Vegetable_Wars.Rooms {
       lastKeys = keys;
 
       if (keys.Length <= 0) return;
-      if (keys[0] == Keys.Tab) {
-        selectedIndex++;
+      if (keys.Contains(Keys.Tab)) {
+        if (keys.Contains(Keys.LeftShift)) {
+          selectedIndex--;
+        } else {
+          selectedIndex++;
+        }
         selectedIndex = (selectedIndex >= Index.Count ? 0 : selectedIndex);
+        selectedIndex = (selectedIndex < 0 ? Index.Count-1 : selectedIndex);
         foreach (var index in Index) index.Selected = false;
         if (Index.Count > 0) Index[selectedIndex].Selected = true;
       }

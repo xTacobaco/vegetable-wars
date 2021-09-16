@@ -25,6 +25,7 @@ namespace Vegetable_Wars.Forms {
 
     private Color[] Green = new Color[] { new Color(81, 164, 82), new Color(60, 130, 63), new Color(42, 111, 55) };
 
+    private Texture2D rect, brect, clear, box;
     public Button(List<IForm> index, Point pos, string text, SndEffect sound, Action action) {
       Pos = pos;
       Text = text;
@@ -32,6 +33,12 @@ namespace Vegetable_Wars.Forms {
       Pressed = action;
       click = VW.soundEffects[(int)sound];
       index.Add(this);
+
+      bgColor = Green[0];
+      rect = textureRect(Size.ToVector2(), bgColor);
+      brect = textureRect(Size.ToVector2() + new Vector2(6, 6), Color.Black);
+      clear = textureRect(new Vector2(4, 4), bgColor);
+      box = textureRect(new Vector2(8, 8), Color.White);
     }
 
     public void Update(GameTime gameTime) {
@@ -57,10 +64,6 @@ namespace Vegetable_Wars.Forms {
 
     public void Draw(SpriteBatch spriteBatch) {
       if (!Visible) return;
-      var rect = textureRect(Size.ToVector2(), bgColor);
-      var brect = textureRect(Size.ToVector2() + new Vector2(6, 6), Color.Black);
-      var clear = textureRect(new Vector2(4, 4), bgColor);
-      var box = textureRect(new Vector2(8, 8), Color.White);
 
       spriteBatch.Draw(brect, Pos.ToVector2() - new Vector2(6, 5), Color.White);
       spriteBatch.Draw(rect, Pos.ToVector2() - new Vector2(3, 2), Color.White);

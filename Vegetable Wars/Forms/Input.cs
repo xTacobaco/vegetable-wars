@@ -27,12 +27,15 @@ namespace Vegetable_Wars.Forms {
     }
     public string Content { get { return text; } }
 
+    private Texture2D rect;
     public Input(List<IForm> index, Point pos) {
       Pos = pos;
       lbl = new Label(Pos, Text);
 
       index.Add(this);
       list = index;
+
+      rect = textureRect(new Vector2(Size.X, 3), Color.White);
     }
 
     public void Update(GameTime gameTime) {
@@ -75,7 +78,6 @@ namespace Vegetable_Wars.Forms {
     }
 
     public void Draw(SpriteBatch spriteBatch) {
-      var rect = textureRect(new Vector2(Size.X, 3), Color.White);
       spriteBatch.Draw(rect, Pos.ToVector2() + new Vector2(0, Size.Y), Color.White);
       lbl.Draw(spriteBatch);
     }
