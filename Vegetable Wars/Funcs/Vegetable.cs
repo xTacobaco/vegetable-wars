@@ -25,7 +25,7 @@ namespace Vegetable_Wars.Funcs {
     }
 
     Texture2D healthBarOutline = new Texture2D(VW.Graphics.GraphicsDevice, 104, 9);
-    Texture2D healthBar = new Texture2D(VW.Graphics.GraphicsDevice, 100, 5);
+    Texture2D healthBar;
     Color[] hboColor, hbColor;
 
     public Vegetable(Vector2 pos, Texture2D spriteSheet) {
@@ -42,15 +42,13 @@ namespace Vegetable_Wars.Funcs {
       sprite.Inject(0, 0, 0, 0, 1, 2);
       
       hboColor = new Color[healthBarOutline.Width*healthBarOutline.Height];
-      hbColor = new Color[healthBar.Width*healthBar.Height];
-
+ 
       for (int i = 0; i < hboColor.Length; i++)
         hboColor[i] = new Color(0, 0, 0, 1f);
-      for (int i = 0; i < hbColor.Length; i++)
-        hbColor[i] = new Color(81, 164, 82);
-
       healthBarOutline.SetData(hboColor);
-      healthBar.SetData(hbColor);
+
+      healthBar = new Texture2D(VW.Graphics.GraphicsDevice, 1, 1);
+      healthBar.SetData(new[] { new Color(81, 164, 82) });
     }
 
     public void Update(GameTime gameTime) {
@@ -60,7 +58,8 @@ namespace Vegetable_Wars.Funcs {
       sprite.Update(gameTime);
 
       if (health > 0) {
-        healthBar = new Texture2D(VW.Graphics.GraphicsDevice, Health, 5);
+        //healthBar.Width = Health;
+        //healthBar = new Texture2D(VW.Graphics.GraphicsDevice, Health, 5);
 
         hbColor = new Color[healthBar.Width*healthBar.Height];
         for (int i = 0; i < hbColor.Length; i++)
@@ -72,7 +71,7 @@ namespace Vegetable_Wars.Funcs {
 
     public void Draw(SpriteBatch spriteBatch) {
       spriteBatch.Draw(healthBarOutline, position - new Vector2(52,72), Color.White);
-      if (health > 0) spriteBatch.Draw(healthBar, position - new Vector2(50,70), Color.White);
+      if (health > 0) spriteBatch.Draw(healthBar, new Rectangle((position - new Vector2(50,70)).ToPoint(), new Point(health, 5)), Color.White);
       sprite.Draw(spriteBatch);
     }
   }
