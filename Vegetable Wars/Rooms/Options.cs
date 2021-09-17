@@ -22,8 +22,8 @@ namespace Vegetable_Wars.Rooms {
       sprite.Inject(0, 0, 0, 0, 1, 2);
       Index = new List<IForm>();
       labelList.Add(new Label(new Point(400, 180), VW.Type.ToString()) { Centered = true });
-      buttonList.Add(new Button(new List<IForm>(), new Point(340, 235), "<", SndEffect.enter, goLeft) { Size = new Point(16, 20) });
-      buttonList.Add(new Button(new List<IForm>(), new Point(450, 235), ">", SndEffect.enter, goRight) { Size = new Point(16, 20) });
+      buttonList.Add(new Button(new List<IForm>(), new Point(340, 235), "<", SndEffect.enter, goLeft, "small"));
+      buttonList.Add(new Button(new List<IForm>(), new Point(450, 235), ">", SndEffect.enter, goRight, "small"));
       buttonList.Add(new Button(Index, new Point(340, 300), "Back", SndEffect.leave, back));
       Index[selectedIndex].Selected = true;
     }

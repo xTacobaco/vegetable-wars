@@ -26,7 +26,7 @@ namespace Vegetable_Wars.Forms {
     private Color[] Green = new Color[] { new Color(81, 164, 82), new Color(60, 130, 63), new Color(42, 111, 55) };
 
     private Texture2D rect, brect, clear, box;
-    public Button(List<IForm> index, Point pos, string text, SndEffect sound, Action action) {
+    public Button(List<IForm> index, Point pos, string text, SndEffect sound, Action action, string type = "") {
       Pos = pos;
       Text = text;
       lbl = new Label(pos, Text);
@@ -34,6 +34,9 @@ namespace Vegetable_Wars.Forms {
       click = VW.soundEffects[(int)sound];
       index.Add(this);
 
+      if (type == "small") {
+        Size = new Point(16, 20);
+      }
       bgColor = Green[0];
       rect = textureRect(Size.ToVector2(), bgColor);
       brect = textureRect(Size.ToVector2() + new Vector2(6, 6), Color.Black);
