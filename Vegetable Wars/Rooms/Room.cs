@@ -71,7 +71,7 @@ namespace Vegetable_Wars.Rooms {
       HttpResponseMessage request;
       int result;
       try {
-        request = await loginValid.PostAsync("http://127.0.0.1/", content);
+        request = await loginValid.PostAsync("http://94.254.74.192/", content);
         result = int.Parse(await request.Content.ReadAsStringAsync());
       } catch {
         result = 4;

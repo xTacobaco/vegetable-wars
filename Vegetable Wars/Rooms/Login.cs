@@ -11,13 +11,14 @@ namespace Vegetable_Wars.Rooms {
     Loading load;
     bool loading = false;
 
-    string[] requestCode = new string[6] {
+    string[] requestCode = new string[7] {
       "Error(0): no matching account.",
       "Registered successfully.",
       "Error(2): bad input. (4-16)",
       "Error(3): user already exists.",
       "Error(4): couldn't connect.",
-      "Error(5): user already logged in."
+      "Error(5): user already logged in.",
+      "Error(6): too many accounts."
     };
 
     Dictionary<string, string> values = new Dictionary<string, string> {
