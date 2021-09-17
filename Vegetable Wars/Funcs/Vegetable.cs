@@ -56,17 +56,6 @@ namespace Vegetable_Wars.Funcs {
       sprite.Pos = position;
       sprite.HOffset = (int)(position.X < VW.GameWindow.X / 2 ? VW.Type : VW.EnemyType);
       sprite.Update(gameTime);
-
-      if (health > 0) {
-        //healthBar.Width = Health;
-        //healthBar = new Texture2D(VW.Graphics.GraphicsDevice, Health, 5);
-
-        hbColor = new Color[healthBar.Width*healthBar.Height];
-        for (int i = 0; i < hbColor.Length; i++)
-          hbColor[i] = new Color(81, 164, 82);
-
-        healthBar.SetData(hbColor);
-      }
     }
 
     public void Draw(SpriteBatch spriteBatch) {
