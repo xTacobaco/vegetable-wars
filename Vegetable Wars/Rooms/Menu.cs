@@ -12,6 +12,7 @@ namespace Vegetable_Wars.Rooms {
       buttonList.Add(new Button(Index, new Point(340, 190), "Play", SndEffect.enter, play));
       buttonList.Add(new Button(Index, new Point(340, 240), "Options", SndEffect.enter, options));
       buttonList.Add(new Button(Index, new Point(340, 290), "Exit", SndEffect.leave, exit));
+      labelList.Add(new Label(new Point(VW.Graphics.PreferredBackBufferWidth-250, VW.Graphics.PreferredBackBufferHeight-20), "William \"xTacobaco\" Beino"));
       Index[selectedIndex].Selected = true;
     }
 

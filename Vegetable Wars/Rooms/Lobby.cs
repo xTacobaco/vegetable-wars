@@ -38,6 +38,7 @@ namespace Vegetable_Wars.Rooms {
       buttonList.Add(new Button(new List<IForm>(), new Point(15, (int)VW.GameWindow.Y - 50), "Leave", SndEffect.leave, leave));
       buttonList.Add(buttonPlay);
       labelList.Add(searchLabel);
+      labelList.Add(new Label(new Point(VW.Graphics.PreferredBackBufferWidth-250, VW.Graphics.PreferredBackBufferHeight-20), "William \"xTacobaco\" Beino"));
     }
 
     public override void Update(GameTime gameTime) {

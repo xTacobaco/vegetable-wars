@@ -25,6 +25,7 @@ namespace Vegetable_Wars.Rooms {
       buttonList.Add(new Button(new List<IForm>(), new Point(340, 235), "<", SndEffect.enter, goLeft, "small"));
       buttonList.Add(new Button(new List<IForm>(), new Point(450, 235), ">", SndEffect.enter, goRight, "small"));
       buttonList.Add(new Button(Index, new Point(340, 300), "Back", SndEffect.leave, back));
+      labelList.Add(new Label(new Point(VW.Graphics.PreferredBackBufferWidth-250, VW.Graphics.PreferredBackBufferHeight-20), "William \"xTacobaco\" Beino"));
       Index[selectedIndex].Selected = true;
     }
 

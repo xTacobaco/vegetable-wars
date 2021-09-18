@@ -33,6 +33,7 @@ namespace Vegetable_Wars.Rooms {
       labelList.Add(new Label(new Point(240, 243), "") { Col = new Color(197, 63, 59) });
       buttonList.Add(new Button(Index, new Point(340, 280), "Login", SndEffect.enter, login));
       buttonList.Add(new Button(Index, new Point(340, 310), "Register", SndEffect.enter, register));
+      labelList.Add(new Label(new Point(VW.Graphics.PreferredBackBufferWidth-250, VW.Graphics.PreferredBackBufferHeight-20), "William \"xTacobaco\" Beino"));
       load = new Loading(new Vector2(397, 250));
       Index[selectedIndex].Selected = true;
     }
