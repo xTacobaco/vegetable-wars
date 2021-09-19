@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Lidgren.Network;
 
 using Vegetable_Wars.Funcs;
@@ -172,7 +171,9 @@ namespace Vegetable_Wars.Rooms {
       foreach (var card in cards)
         Hand.Remove(card);
       Random random = new Random();
-      createCard(random);
+      while (Hand.Count < 5) {
+          createCard(random);
+      }
       waiting = true;
 
       var client = VW.netHandler.Peer;
@@ -201,14 +202,14 @@ namespace Vegetable_Wars.Rooms {
       int smag = cards.ToCharArray().Count(c => c == '3');
       int satt = cards.ToCharArray().Count(c => c == '4');
 
-      other.Health -= 25 * (int)Math.Pow(atta * (other.AttackBlock > 0 ? 0 : 1), 2);
-      other.Health -= 25 * (int)Math.Pow(magi * (other.AttackBlock > 0 ? 0 : 1), 2);
-      other.AttackBlock--;
-      other.MagicBlock--;
+      other.Health -= 20 * Math.Max(atta - other.AttackBlock, 0);
+      other.Health -= 20 * Math.Max(magi - other.MagicBlock, 0);
+      other.AttackBlock = 0;
+      other.MagicBlock = 0;
 
       sender.AttackBlock += satt;
       sender.MagicBlock += smag;
-      sender.Health += 25 * (int)Math.Pow(heal, 2);
+      sender.Health += 20 * heal;
     }
     private void cardHandler(Vegetable veggie, List<Card> cards) { cardHandler(veggie, string.Join(",", cards.Select(y => (int)y.Type))); }
 

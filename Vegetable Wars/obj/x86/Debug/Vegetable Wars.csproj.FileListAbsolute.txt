@@ -34,3 +34,8 @@ C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.exe
 C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.pdb
 C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Lidgren.Network.dll
 C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Lidgren.Network.pdb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Content\shield.xnb
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Vegetable Wars.exe.manifest
+C:\Projects\vegetable-wars\Vegetable Wars\bin\Windows\x86\Debug\Vegetable Wars.application
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.exe.manifest
+C:\Projects\vegetable-wars\Vegetable Wars\obj\x86\Debug\Vegetable Wars.application

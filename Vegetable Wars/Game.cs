@@ -34,7 +34,7 @@ namespace Vegetable_Wars {
 
     Texture2D mouseTexture;
     public static Point MousePos;
-    public static Texture2D LoadTexture, VeggieSheet, CardSheet;
+    public static Texture2D LoadTexture, VeggieSheet, CardSheet, Shield;
 
     public static Texture2D DisplaySprite;
     public static VegetableDisplay PlayerDisplay;
@@ -69,6 +69,7 @@ namespace Vegetable_Wars {
       spriteBatch = new SpriteBatch(GraphicsDevice);
       
       VeggieSheet = Content.Load<Texture2D>("spriteSheet");
+      Shield = Content.Load<Texture2D>("shield");
       CardSheet = Content.Load<Texture2D>("cardSheet");
       mouseTexture = Content.Load<Texture2D>("mouse");
       LoadTexture = Content.Load<Texture2D>("load");
