@@ -13,7 +13,7 @@ namespace Vegetable_Wars {
 
       NetClient client = new NetClient(config);
       client.Start();
-      client.Connect("192.168.1.151", 2220);
+      client.Connect("94.254.74.192", 2220);
 
       NetworkHandler netHandler = new NetworkHandler(client);
       using (var game = new VW(netHandler))
